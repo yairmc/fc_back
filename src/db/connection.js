@@ -4,8 +4,9 @@ export const sequelize = new Sequelize('railway', 'postgres', 'bpkFWnPIHwx8o0l5W
     host: 'containers-us-west-85.railway.app',
     dialect: 'postgres',
     port:"6991",
+    operatorsAliases:0,
     define:{
-        timestamps:false
+        timestamps:0
     },
     pool:{
       max:5,
