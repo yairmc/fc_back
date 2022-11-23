@@ -21,13 +21,13 @@ app.post("/login", async (req, res) => {
 
   const result = await getAllUsers();
   const users = result.map(user => user.dataValues);
-  let authenticate = false;
+  let authenticate = 0;
 
   for (let i = 0; i < users.length; i++) {
-    if (users[i].username === username && users[i].password === password) authenticate = true
+    if (users[i].username === username && users[i].password === password) authenticate = 1
   }
 
-  if (authenticate) res.status(200).json('authenticate')
+  if (authenticate===1) res.status(200).json('authenticate')
   else res.status(403).json("Access Denied")
 
 
