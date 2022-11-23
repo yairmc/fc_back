@@ -46,4 +46,4 @@ app.post("/signUp", async (req, res) => {
 
 
 
-app.listen(port)
+app.listen(PORT)
