@@ -46,6 +46,6 @@ app.post("/signUp", async (req, res) => {
 
 
 
-app.listen(3000, async () => {
+app.listen(3000, () => {
   console.log("Server running");
 })
