@@ -8,10 +8,6 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-sequelize.sync()
-    .then(()=>console.log("Connected with the data base"))
-    .catch(error=>console.log(error))
-
 
 app.post("/login", async (req, res) => {
 
