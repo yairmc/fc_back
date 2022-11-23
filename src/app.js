@@ -8,6 +8,10 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+sequelize.sync()
+    .then(()=>console.log("Connected with the data base"))
+    .catch(error=>console.log(error))
+
 
 app.post("/login", async (req, res) => {
 
@@ -41,6 +45,6 @@ app.post("/signUp", async (req, res) => {
 })
 
 
-const PORT = process.env.PORT || 5001
+const PORT = process.env.PGPORT || 5001
 app.listen(PORT)
 console.log(`server runing in port ${PORT}`);
