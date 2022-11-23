@@ -3,7 +3,6 @@ import cors from "cors";
 import bodyParser from "body-parser";
 import { createUser, getAllUsers } from "./db/userModel.js";
 import { sequelize} from "./db/connection.js";
-import{PORT} from './config.js'
 
 const app = express();
 app.use(cors());
@@ -46,4 +45,4 @@ app.post("/signUp", async (req, res) => {
 
 
 
-app.listen(PORT)
+app.listen(6991)
