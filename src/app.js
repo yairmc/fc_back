@@ -3,6 +3,7 @@ import cors from "cors";
 import bodyParser from "body-parser";
 import { createUser, getAllUsers } from "./db/userModel.js";
 import { sequelize} from "./db/connection.js";
+import{PORT} from './config.js'
 
 const app = express();
 app.use(cors());
@@ -34,7 +35,6 @@ app.post("/login", async (req, res) => {
 })
 
 app.post("/signUp", async (req, res) => {
-  console.log("HERE");
   const { body } = req;
   try {
     await createUser(body);
@@ -46,4 +46,4 @@ app.post("/signUp", async (req, res) => {
 
 
 
-app.listen(3000)
+app.listen(port)
