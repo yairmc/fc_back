@@ -1,18 +1,19 @@
 import Sequelize from 'sequelize';
 
-export const sequelize = new Sequelize('railway', 'postgres', 'bpkFWnPIHwx8o0l5Wkj2', {
-    host: 'containers-us-west-85.railway.app',
+export const sequelize = new Sequelize(process.env.PGDATABASE || 'foodcomunity', process.env.PGUSER || 'postgres', process.env.PGPASSWORD || 'root', {
+    host: process.env.PGHOST || 'localhost',
+    port: process.env.PGPORT || 5432,
     dialect: 'postgres',
-    port:"6991",
-    operatorsAliases:false,
-    define:{
-        timestamps:false
+
+    operatorsAliases: false,
+    define: {
+        timestamps: false
     },
-    pool:{
-      max:5,
-      min:0,
-      acquire:30000,
-      idle:10000
+    pool: {
+        max: 5,
+        min: 0,
+        acquire: 30000,
+        idle: 10000
     }
 });
 
