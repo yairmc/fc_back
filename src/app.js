@@ -12,7 +12,7 @@ sequelize.sync()
     .then(()=>console.log("Connected with the data base"))
     .catch(error=>console.log(error))
 
-app.get('/healt', (req,res)=>{
+app.get('/', (req,res)=>{
   res.status(200).json("jala")
 })
 
