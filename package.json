@@ -6,7 +6,9 @@
   "type": "module",
   "scripts": {
     "dev": "nodemon ./src/main.js",
-    "db": "node ./src/db/main.js"
+    "db": "node ./src/db/main.js",
+    "start": "node ./src/main.js"
+
   },
   "author": "",
   "license": "ISC",
