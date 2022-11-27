@@ -1,4 +1,4 @@
-import { INTEGER, STRING } from 'sequelize';
+import { BIGINT, INTEGER, STRING } from 'sequelize';
 import { sequelize } from './connection.js'
 
 export const UserModel = sequelize.define('User', {
@@ -28,7 +28,7 @@ export const UserModel = sequelize.define('User', {
         unique: true
     },
     celphone: {
-        type: INTEGER,
+        type: STRING,
         allowNull: false,
     },
     timeStart: {
