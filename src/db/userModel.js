@@ -8,6 +8,11 @@ export const UserModel = sequelize.define('User', {
         autoIncrement: true,
         allowNull: false
     },
+    user: {
+        type: STRING,
+        allowNull: false,
+        unique: true
+    },
     username: {
         type: STRING,
         allowNull: false,
@@ -16,6 +21,21 @@ export const UserModel = sequelize.define('User', {
     password: {
         type: STRING,
         allowNull: false,
+    },
+    address: {
+        type: STRING,
+        allowNull: false,
+        unique: true
+    },
+    celphone: {
+        type: INTEGER,
+        allowNull: false,
+    },
+    timeStart: {
+        type: INTEGER,
+    },
+    timeEnd: {
+        type: INTEGER,
     }
 }, {
     tableName: 'User',
@@ -26,7 +46,7 @@ export const UserModel = sequelize.define('User', {
 export const getAllUsers = async () => {
     const allUsers = await UserModel.findAll({
         order: ['id'],
-        atributes: ['id', 'username', 'password']
+        atributes: ['id', 'user', 'username', 'password', 'address', 'celphone', 'timeStart', 'timeEnd']
     })
     return allUsers;
 }
