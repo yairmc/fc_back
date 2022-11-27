@@ -11,7 +11,6 @@ export const UserModel = sequelize.define('User', {
     user: {
         type: STRING,
         allowNull: false,
-        unique: true
     },
     username: {
         type: STRING,
