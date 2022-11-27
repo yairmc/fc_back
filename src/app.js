@@ -39,9 +39,10 @@ app.post("/login", async (req, res) => {
 app.post("/signUp", async (req, res) => {
   console.log("HERE");
   const { body } = req;
+  console.log(body);
   try {
     await createUser(body);
-    res.status(200).json('new user was created');
+    res.status(200).json('signUp success');
   } catch (error) {
     res.status(404).json("Invalid credentials");
   }
