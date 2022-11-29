@@ -30,8 +30,8 @@ app.post("/login", async (req, res) => {
     if (users[i].username === username && users[i].password === password) authenticate = true
   }
 
-  if (authenticate) res.status(200).json('authenticate')
-  else res.status(403).json("Access Denied")
+  if (authenticate) res.status(200).json(users)
+  // else res.status(403).json("Access Denied")
 
 
 })
