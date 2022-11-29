@@ -2,36 +2,39 @@ import express from "express";
 import cors from "cors";
 import bodyParser from "body-parser";
 import { createUser, getAllUsers } from "./db/userModel.js";
-import { sequelize} from "./db/connection.js";
+import { sequelize } from "./db/connection.js";
 
 const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 sequelize.sync()
-    .then(()=>console.log("Connected with the data base"))
-    .catch(error=>console.log(error))
+  .then(() => console.log("Connected with the data base"))
+  .catch(error => console.log(error))
 
-app.get('/', (req,res)=>{
+app.get('/', (req, res) => {
   res.status(200).json("jala")
 })
 
 app.post("/login", async (req, res) => {
 
-  console.log("Entro");
   const { body } = req;
   const { username, password } = body;
 
   const result = await getAllUsers();
   const users = result.map(user => user.dataValues);
   let authenticate = false;
+  let user;
 
   for (let i = 0; i < users.length; i++) {
-    if (users[i].username === username && users[i].password === password) authenticate = true
+    if (users[i].username === username && users[i].password === password) {
+      authenticate = true
+      user=users[i];
+    }
   }
 
-  if (authenticate) res.status(200).json(users)
-  // else res.status(403).json("Access Denied")
+  if (authenticate) res.status(200).json(user)
+  else res.status(403).json("Access Denied")
 
 
 })
