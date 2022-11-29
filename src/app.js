@@ -31,7 +31,7 @@ app.post("/login", async (req, res) => {
   }
 
   if (authenticate) res.status(200).json('authenticate')
-  else res.status(403).json("Access Denied",users)
+  else res.status(403).json("Access Denied")
 
 
 })
