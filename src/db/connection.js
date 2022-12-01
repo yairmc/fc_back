@@ -18,7 +18,7 @@ export const sequelize = new Sequelize('railway', 'postgres', 'LtBh3rkvP5xDghiHP
 
 export const dbConnection = async () => {
     try {
-        const connection = await sequelize.sync({ alter: true });
+        const connection = await sequelize.sync({ force: true });
         if (connection) console.log("Database Connected");
     } catch (error) {
         console.log(error);
