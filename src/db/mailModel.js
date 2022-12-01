@@ -9,6 +9,10 @@ export const MailModel=sequelize.define('Mail', {
     userId:{
         type:INTEGER,
         allowNullL:false
+    },
+    center:{
+        type:STRING,
+        allowNull:false
     }
 },{
     tableName:'Mail',
