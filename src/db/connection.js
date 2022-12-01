@@ -1,9 +1,9 @@
 import Sequelize from 'sequelize';
 
-export const sequelize = new Sequelize('railway', 'postgres', 'LtBh3rkvP5xDghiHPCaq', {
-    host: 'containers-us-west-43.railway.app',
+export const sequelize = new Sequelize('railway', 'postgres', 'uSq2AKIr0jIKvbYh8HCb', {
+    host: 'containers-us-west-75.railway.app',
     dialect: 'postgres',
-    port:"6997",
+    port:"6358",
     operatorsAliases:0,
     define:{
         timestamps:false
