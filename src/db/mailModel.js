@@ -22,7 +22,7 @@ export const MailModel=sequelize.define('Mail', {
 export const getAllMails=async()=>{
     const allEmails=await MailModel.findAll({
         order:['id'],
-        atributes:[ 'mail', 'userId']
+        atributes:[ 'mail', 'userId', 'center']
     })
     return allEmails;
 }
