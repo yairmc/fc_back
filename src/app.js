@@ -2,6 +2,7 @@ import express from "express";
 import cors from "cors";
 import bodyParser from "body-parser";
 import { createUser, getAllUsers } from "./db/userModel.js";
+import {createMail, getAllMails} from "./db/mailModel.js"
 import { sequelize } from "./db/connection.js";
 
 const app = express();
