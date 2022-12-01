@@ -40,14 +40,21 @@ app.post("/login", async (req, res) => {
 })
 
 app.post("/signUp", async (req, res) => {
-  console.log("HERE");
   const { body } = req;
-  console.log(body);
   try {
     await createUser(body);
     res.status(200).json('signUp success');
   } catch (error) {
     res.status(404).json("Invalid credentials");
+  }
+})
+
+app.get("/users", async(req,res)=>{
+  try{
+    const users=await getAllUsers();
+    res.status(200).json(users)
+  }catch(error){
+    res.status(404).json("Error to get users")
   }
 })
 
