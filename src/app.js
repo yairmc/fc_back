@@ -78,11 +78,12 @@ app.get("/mail", async (req, res) => {
   }
 })
 
-app.delete("/mail/id", async (req, res) => {
+app.delete("/mail/:id", async (req, res) => {
 try {
   const {id}=req.params;
-  await deleteMail(id);
-  res.status(200).json("Mail was delete")
+  const deleteM=await deleteMail(id);
+  
+  res.status(200).json(deleteM)
 } catch (error) {
   res.status(400).json("error while deleting email")
 }
