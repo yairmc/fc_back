@@ -78,7 +78,7 @@ app.get("/mail", async (req, res) => {
   }
 })
 
-app.delete("/mail/", async (req, res) => {
+app.delete("/mail/id", async (req, res) => {
 try {
   const {id}=req.params;
   await deleteMail(id);
