@@ -30,3 +30,12 @@ export const getAllMails=async()=>{
 export const createMail=async(mail)=>{
     const newMail=await MailModel.create(mail)
 }
+
+export const deleteMail=async(id)=>{
+    const mail=await MailModel.destroy({
+        where:{
+            id
+        }
+    })
+    return mail
+}

@@ -2,7 +2,7 @@ import express from "express";
 import cors from "cors";
 import bodyParser from "body-parser";
 import { createUser, getAllUsers } from "./db/userModel.js";
-import { createMail, getAllMails } from "./db/mailModel.js"
+import { createMail, deleteMail, getAllMails } from "./db/mailModel.js"
 import { sequelize } from "./db/connection.js";
 
 const app = express();
@@ -69,15 +69,24 @@ app.post("/mail", async (req, res) => {
   }
 })
 
-app.get("/mail", async (req,res)=>{
+app.get("/mail", async (req, res) => {
   try {
-    const mails=await getAllMails();
+    const mails = await getAllMails();
     res.status(200).json(mails)
   } catch (error) {
     res.status(404).json("error to get mails")
   }
 })
 
+app.delete("/mail/:id", async (req, res) => {
+try {
+  const {id}=req.params;
+  const deleteMail=await deleteMail(id);
+  res.status(200).json("Mail was delete")
+} catch (error) {
+  res.status(400).json("error while deleting email")
+}
+})
 const PORT = process.env.PORT || 5000
 app.listen(PORT)
 console.log(`server runing in port ${PORT}`);
